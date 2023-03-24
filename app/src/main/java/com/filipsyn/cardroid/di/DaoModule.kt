@@ -5,7 +5,9 @@ import com.filipsyn.cardroid.database.CarsDatabase
 import org.koin.dsl.module
 
 val daoModule = module {
-    fun provideDaoModule(database: CarsDatabase): CarsDao{
+    fun provideDaoModule(database: CarsDatabase): CarsDao {
         return database.carsDao()
     }
+
+    single { provideDaoModule(get()) }
 }
