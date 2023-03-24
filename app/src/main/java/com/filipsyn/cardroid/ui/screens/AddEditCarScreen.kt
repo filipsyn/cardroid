@@ -6,12 +6,15 @@ import com.filipsyn.cardroid.ui.elements.BackArrowScreen
 
 @Composable
 fun AddEditCarScreen(navigation: INavigationRouter, id: Long?) {
-    BackArrowScreen(appBarTitle = "Edit car", onBackClick = { /*TODO*/ }) {
-       AddEditCarScreenContent()
+    BackArrowScreen(
+        appBarTitle = "Add or edit car",
+        onBackClick = { navigation.navigateBack() })
+    {
+        AddEditCarScreenContent()
     }
 }
 
 @Composable
-fun AddEditCarScreenContent(){
+fun AddEditCarScreenContent() {
 
 }
