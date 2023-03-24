@@ -7,10 +7,15 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.filipsyn.cardroid.navigation.INavigationRouter
+import com.filipsyn.cardroid.viewmodels.CarListViewModel
+import org.koin.androidx.compose.getViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CarListScreen(navigation: INavigationRouter) {
+fun CarListScreen(
+    navigation: INavigationRouter,
+    viewModel: CarListViewModel = getViewModel()
+) {
     Scaffold(
         topBar = {
             TopAppBar(title = {
@@ -18,7 +23,7 @@ fun CarListScreen(navigation: INavigationRouter) {
             })
         },
         floatingActionButton = {
-            FloatingActionButton(onClick = {navigation.navigateToAddEditCarScreen(-1L)}) {
+            FloatingActionButton(onClick = { navigation.navigateToAddEditCarScreen(-1L) }) {
                 Text(text = "+")
             }
         }
@@ -28,10 +33,10 @@ fun CarListScreen(navigation: INavigationRouter) {
 }
 
 @Composable
-fun CarListScreenContent (paddingValues: PaddingValues){
+fun CarListScreenContent(paddingValues: PaddingValues) {
     LazyColumn(modifier = Modifier.padding(paddingValues)) {
-       item {
-          Text("Empty car list")
-       }
+        item {
+            Text("Empty car list")
+        }
     }
 }
