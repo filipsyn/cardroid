@@ -18,15 +18,12 @@ abstract class CarsDatabase : RoomDatabase() {
                 synchronized(CarsDatabase::class.java) {
                     if (INSTANCE == null) {
                         INSTANCE = Room.databaseBuilder(
-                            context.applicationContext,
-                            CarsDatabase::class.java, "cars_database"
-                        ).fallbackToDestructiveMigration()
-                            .build()
+                            context.applicationContext, CarsDatabase::class.java, "cars_database"
+                        ).fallbackToDestructiveMigration().build()
                     }
                 }
             }
             return INSTANCE!!
         }
     }
-
 }
