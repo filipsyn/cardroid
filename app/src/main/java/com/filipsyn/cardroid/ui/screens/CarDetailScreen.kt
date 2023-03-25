@@ -7,12 +7,12 @@ import com.filipsyn.cardroid.ui.elements.BackArrowScreen
 
 @Composable
 fun CarDetailScreen(navigation: INavigationRouter, id: Long?) {
-    BackArrowScreen(appBarTitle = "Detail of car" , onBackClick = { /*TODO*/ }) {
+    BackArrowScreen(appBarTitle = "Detail of car", onBackClick = { navigation.navigateBack() }) {
         CarDetailScreenContent()
     }
 }
 
 @Composable
-fun CarDetailScreenContent(){
+fun CarDetailScreenContent() {
     Text("Detail")
 }
